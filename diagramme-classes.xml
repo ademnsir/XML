@@ -1,252 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<class-diagram>
-    <enums>
-        <enum name="UserRole">
-            <value>ADMIN</value>
-            <value>DEVELOPPER</value>
-            <value>INFRA</value>
-        </enum>
-        <enum name="UserStatus">
-            <value>ACTIF</value>
-            <value>EN_ATTENTE</value>
-            <value>SUSPENDU</value>
-        </enum>
-        <enum name="Status">
-            <value>TO_DO</value>
-            <value>IN_PROGRESS</value>
-            <value>COMPLETED</value>
-        </enum>
-        <enum name="Priorite">
-            <value>LOW</value>
-            <value>MEDIUM</value>
-            <value>HIGH</value>
-        </enum>
-        <enum name="Etat">
-            <value>EXISTING_PROJECT</value>
-            <value>FROM_SCRATCH</value>
-        </enum>
-        <enum name="Priority">
-            <value>LOW</value>
-            <value>HIGH</value>
-        </enum>
-        <enum name="LivrableType">
-            <value>BACKEND</value>
-            <value>FRONTEND</value>
-            <value>RAPPORT</value>
-            <value>SCRIPT</value>
-        </enum>
-        <enum name="EnvType">
-            <value>DEV</value>
-            <value>PREPROD</value>
-            <value>PROD</value>
-            <value>TEST</value>
-            <value>AUTRE</value>
-        </enum>
-        <enum name="ProtType">
-            <value>SSH</value>
-            <value>TELNET</value>
-            <value>RDP</value>
-            <value>HTTP</value>
-            <value>HTTPS</value>
-            <value>FTP</value>
-            <value>SMTP</value>
-            <value>TEST</value>
-            <value>AUTRE</value>
-        </enum>
-        <enum name="ComponentType">
-            <value>BDD</value>
-            <value>BACKEND</value>
-            <value>FRONTEND</value>
-            <value>AUTRE</value>
-        </enum>
-        <enum name="CongeType">
-            <value>MALADIE</value>
-            <value>CONGE</value>
-            <value>DECES</value>
-            <value>MARIAGE</value>
-            <value>AUTRES</value>
-        </enum>
-        <enum name="CongeStatus">
-            <value>PENDING</value>
-            <value>APPROVED</value>
-            <value>REJECTED</value>
-        </enum>
-    </enums>
+<mxfile host="app.diagrams.net" modified="2024-04-15T12:00:00.000Z" agent="Mozilla/5.0" version="21.1.2" type="device">
+  <diagram id="gdp-class-diagram" name="GDP Class Diagram">
+    <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        
+        <!-- Enums -->
+        <mxCell id="UserRole" value="UserRole&#xa;ADMIN&#xa;DEVELOPPER&#xa;INFRA" style="shape=umlEnumeration;verticalLabelPosition=bottom;verticalAlign=top;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="120" height="100" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="UserStatus" value="UserStatus&#xa;ACTIF&#xa;EN_ATTENTE&#xa;SUSPENDU" style="shape=umlEnumeration;verticalLabelPosition=bottom;verticalAlign=top;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="200" y="40" width="120" height="100" as="geometry"/>
+        </mxCell>
 
-    <classes>
-        <class name="User">
-            <attributes>
-                <attribute name="id" type="number"/>
-                <attribute name="username" type="string"/>
-                <attribute name="password" type="string"/>
-                <attribute name="firstName" type="string"/>
-                <attribute name="lastName" type="string"/>
-                <attribute name="email" type="string"/>
-                <attribute name="matricule" type="string"/>
-                <attribute name="photo" type="string"/>
-                <attribute name="role" type="UserRole"/>
-                <attribute name="status" type="UserStatus"/>
-                <attribute name="hireDate" type="Date"/>
-                <attribute name="endDate" type="Date"/>
-            </attributes>
-            <relations>
-                <relation type="ManyToMany" target="Project"/>
-                <relation type="OneToMany" target="Task"/>
-                <relation type="OneToMany" target="Conge"/>
-                <relation type="OneToMany" target="Notification"/>
-                <relation type="OneToMany" target="Stagiaire"/>
-            </relations>
-        </class>
+        <!-- Classes -->
+        <mxCell id="User" value="User&#xa;+ id: number&#xa;+ username: string&#xa;+ password: string&#xa;+ firstName: string&#xa;+ lastName: string&#xa;+ email: string&#xa;+ matricule: string&#xa;+ photo: string&#xa;+ role: UserRole&#xa;+ status: UserStatus&#xa;+ hireDate: Date&#xa;+ endDate: Date" style="shape=umlClass;verticalLabelPosition=bottom;verticalAlign=top;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="40" y="200" width="200" height="300" as="geometry"/>
+        </mxCell>
 
-        <class name="Project">
-            <attributes>
-                <attribute name="id" type="number"/>
-                <attribute name="name" type="string"/>
-                <attribute name="status" type="Status"/>
-                <attribute name="priorite" type="Priorite"/>
-                <attribute name="etat" type="Etat"/>
-                <attribute name="linkprojet" type="string"/>
-                <attribute name="description" type="string"/>
-                <attribute name="estimatedEndDate" type="Date"/>
-            </attributes>
-            <relations>
-                <relation type="OneToMany" target="Task"/>
-                <relation type="OneToMany" target="Livrable"/>
-                <relation type="OneToMany" target="Environnement"/>
-                <relation type="OneToMany" target="Checklist"/>
-                <relation type="ManyToMany" target="User"/>
-            </relations>
-        </class>
+        <mxCell id="Project" value="Project&#xa;+ id: number&#xa;+ name: string&#xa;+ status: Status&#xa;+ priorite: Priorite&#xa;+ etat: Etat&#xa;+ linkprojet: string&#xa;+ description: string&#xa;+ estimatedEndDate: Date" style="shape=umlClass;verticalLabelPosition=bottom;verticalAlign=top;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="300" y="200" width="200" height="300" as="geometry"/>
+        </mxCell>
 
-        <class name="Task">
-            <attributes>
-                <attribute name="id" type="number"/>
-                <attribute name="title" type="string"/>
-                <attribute name="description" type="string"/>
-                <attribute name="status" type="string"/>
-                <attribute name="priority" type="Priority"/>
-                <attribute name="type" type="string"/>
-                <attribute name="customType" type="string"/>
-                <attribute name="creationDate" type="Date"/>
-            </attributes>
-            <relations>
-                <relation type="ManyToOne" target="Project"/>
-                <relation type="ManyToOne" target="User"/>
-            </relations>
-        </class>
+        <!-- Relations -->
+        <mxCell id="User-Project" value="ManyToMany" style="endArrow=open;endFill=1;endSize=12;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="User" target="Project">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="400" y="400" as="sourcePoint"/>
+            <mxPoint x="560" y="400" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
 
-        <class name="Stagiaire">
-            <attributes>
-                <attribute name="id" type="number"/>
-                <attribute name="firstName" type="string"/>
-                <attribute name="lastName" type="string"/>
-                <attribute name="email" type="string"/>
-                <attribute name="specialite" type="string"/>
-                <attribute name="dureeStage" type="number"/>
-                <attribute name="dateDebut" type="Date"/>
-                <attribute name="dateFin" type="Date"/>
-                <attribute name="photo" type="string"/>
-            </attributes>
-            <relations>
-                <relation type="ManyToOne" target="User"/>
-            </relations>
-        </class>
-
-        <class name="Livrable">
-            <attributes>
-                <attribute name="id" type="number"/>
-                <attribute name="label" type="string"/>
-                <attribute name="description" type="string"/>
-                <attribute name="type" type="LivrableType"/>
-            </attributes>
-            <relations>
-                <relation type="ManyToOne" target="Project"/>
-                <relation type="ManyToMany" target="Technologie"/>
-            </relations>
-        </class>
-
-        <class name="Technologie">
-            <attributes>
-                <attribute name="id" type="number"/>
-                <attribute name="label" type="string"/>
-                <attribute name="description" type="string"/>
-                <attribute name="version" type="string"/>
-                <attribute name="language" type="string"/>
-            </attributes>
-            <relations>
-                <relation type="ManyToMany" target="Livrable"/>
-            </relations>
-        </class>
-
-        <class name="Environnement">
-            <attributes>
-                <attribute name="id" type="number"/>
-                <attribute name="nomServeur" type="string"/>
-                <attribute name="systemeExploitation" type="string"/>
-                <attribute name="ipServeur" type="string"/>
-                <attribute name="port" type="number"/>
-                <attribute name="type" type="EnvType"/>
-                <attribute name="Ptype" type="ProtType"/>
-                <attribute name="componentType" type="ComponentType"/>
-                <attribute name="cpu" type="string"/>
-                <attribute name="ram" type="string"/>
-                <attribute name="stockage" type="string"/>
-                <attribute name="logicielsInstalled" type="string[]"/>
-                <attribute name="nomUtilisateur" type="string"/>
-                <attribute name="motDePasse" type="string"/>
-            </attributes>
-            <relations>
-                <relation type="ManyToOne" target="Project"/>
-            </relations>
-        </class>
-
-        <class name="Checklist">
-            <attributes>
-                <attribute name="id" type="number"/>
-                <attribute name="spec" type="string"/>
-                <attribute name="frs" type="string"/>
-                <attribute name="lienGitFrontend" type="string"/>
-                <attribute name="lienGitBackend" type="string"/>
-            </attributes>
-            <relations>
-                <relation type="ManyToOne" target="Project"/>
-            </relations>
-        </class>
-
-        <class name="Conge">
-            <attributes>
-                <attribute name="id" type="number"/>
-                <attribute name="userId" type="number"/>
-                <attribute name="matricule" type="string"/>
-                <attribute name="service" type="string"/>
-                <attribute name="responsable" type="string"/>
-                <attribute name="type" type="CongeType"/>
-                <attribute name="startDate" type="Date"/>
-                <attribute name="endDate" type="Date"/>
-                <attribute name="dateReprise" type="Date"/>
-                <attribute name="telephone" type="string"/>
-                <attribute name="adresse" type="string"/>
-                <attribute name="interim1" type="string"/>
-                <attribute name="interim2" type="string"/>
-                <attribute name="firstName" type="string"/>
-                <attribute name="lastName" type="string"/>
-                <attribute name="status" type="CongeStatus"/>
-            </attributes>
-            <relations>
-                <relation type="ManyToOne" target="User"/>
-            </relations>
-        </class>
-
-        <class name="Notification">
-            <attributes>
-                <attribute name="id" type="number"/>
-                <attribute name="message" type="string"/>
-                <attribute name="isRead" type="boolean"/>
-                <attribute name="createdAt" type="Date"/>
-            </attributes>
-            <relations>
-                <relation type="ManyToOne" target="User"/>
-            </relations>
-        </class>
-    </classes>
-</class-diagram>
+        <!-- Add more classes and relations here -->
+        
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
