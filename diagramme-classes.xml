@@ -1,252 +1,136 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<entities>
-    <!-- Enums -->
-    <enum name="UserRole">
-        <value>ADMIN</value>
-        <value>DEVELOPPER</value>
-        <value>INFRA</value>
-    </enum>
+<mxfile host="app.diagrams.net" modified="2024-04-15T12:00:00.000Z" agent="Mozilla/5.0" version="21.1.2" type="device">
+  <diagram id="gdp-class-diagram" name="GDP Class Diagram">
+    <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        
+        <!-- Enums -->
+        <mxCell id="UserRole" value="UserRole&#xa;ADMIN&#xa;DEVELOPPER&#xa;INFRA" style="shape=umlEnumeration;verticalLabelPosition=bottom;verticalAlign=top;align=left;spacingLeft=10;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="120" height="100" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="UserStatus" value="UserStatus&#xa;ACTIF&#xa;EN_ATTENTE&#xa;SUSPENDU" style="shape=umlEnumeration;verticalLabelPosition=bottom;verticalAlign=top;align=left;spacingLeft=10;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="200" y="40" width="120" height="100" as="geometry"/>
+        </mxCell>
 
-    <enum name="UserStatus">
-        <value>ACTIF</value>
-        <value>EN_ATTENTE</value>
-        <value>SUSPENDU</value>
-    </enum>
+        <!-- Core Entities -->
+        <mxCell id="User" value="User&#xa;+ id: number&#xa;+ username: string&#xa;+ password: string&#xa;+ firstName: string&#xa;+ lastName: string&#xa;+ email: string&#xa;+ matricule: string&#xa;+ photo: string&#xa;+ role: UserRole&#xa;+ status: UserStatus&#xa;+ hireDate: Date&#xa;+ endDate: Date" style="shape=umlClass;verticalLabelPosition=bottom;verticalAlign=top;align=left;spacingLeft=10;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="40" y="200" width="200" height="300" as="geometry"/>
+        </mxCell>
 
-    <enum name="Status">
-        <value>EN_COURS</value>
-        <value>TERMINE</value>
-        <value>EN_ATTENTE</value>
-    </enum>
+        <mxCell id="Project" value="Project&#xa;+ id: number&#xa;+ name: string&#xa;+ status: Status&#xa;+ priorite: Priorite&#xa;+ etat: Etat&#xa;+ linkprojet: string&#xa;+ description: string&#xa;+ estimatedEndDate: Date" style="shape=umlClass;verticalLabelPosition=bottom;verticalAlign=top;align=left;spacingLeft=10;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="300" y="200" width="200" height="300" as="geometry"/>
+        </mxCell>
 
-    <enum name="Priorite">
-        <value>HAUTE</value>
-        <value>MOYENNE</value>
-        <value>BASSE</value>
-    </enum>
+        <!-- Task Related -->
+        <mxCell id="Task" value="Task&#xa;+ id: number&#xa;+ title: string&#xa;+ description: string&#xa;+ status: string&#xa;+ priority: Priority&#xa;+ type: string&#xa;+ customType: string&#xa;+ creationDate: Date" style="shape=umlClass;verticalLabelPosition=bottom;verticalAlign=top;align=left;spacingLeft=10;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="560" y="200" width="200" height="300" as="geometry"/>
+        </mxCell>
 
-    <enum name="Etat">
-        <value>EN_COURS</value>
-        <value>TERMINE</value>
-        <value>EN_ATTENTE</value>
-    </enum>
+        <!-- Project Related -->
+        <mxCell id="Livrable" value="Livrable&#xa;+ id: number&#xa;+ label: string&#xa;+ description: string&#xa;+ type: LivrableType" style="shape=umlClass;verticalLabelPosition=bottom;verticalAlign=top;align=left;spacingLeft=10;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="300" y="560" width="200" height="300" as="geometry"/>
+        </mxCell>
 
-    <enum name="Priority">
-        <value>LOW</value>
-        <value>HIGH</value>
-    </enum>
+        <mxCell id="Technologie" value="Technologie&#xa;+ id: number&#xa;+ label: string&#xa;+ description: string&#xa;+ version: string&#xa;+ language: string" style="shape=umlClass;verticalLabelPosition=bottom;verticalAlign=top;align=left;spacingLeft=10;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="560" y="560" width="200" height="300" as="geometry"/>
+        </mxCell>
 
-    <enum name="LivrableType">
-        <value>BACKEND</value>
-        <value>FRONTEND</value>
-        <value>RAPPORT</value>
-        <value>SCRIPT</value>
-    </enum>
+        <mxCell id="Environnement" value="Environnement&#xa;+ id: number&#xa;+ nomServeur: string&#xa;+ systemeExploitation: string&#xa;+ ipServeur: string&#xa;+ port: number&#xa;+ type: EnvType&#xa;+ Ptype: ProtType&#xa;+ componentType: ComponentType&#xa;+ cpu: string&#xa;+ ram: string&#xa;+ stockage: string&#xa;+ logicielsInstalled: string[]&#xa;+ nomUtilisateur: string&#xa;+ motDePasse: string" style="shape=umlClass;verticalLabelPosition=bottom;verticalAlign=top;align=left;spacingLeft=10;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="920" width="200" height="300" as="geometry"/>
+        </mxCell>
 
-    <enum name="EnvType">
-        <value>DEVELOPPEMENT</value>
-        <value>TEST</value>
-        <value>PRODUCTION</value>
-    </enum>
+        <mxCell id="Checklist" value="Checklist&#xa;+ id: number&#xa;+ spec: string&#xa;+ frs: string&#xa;+ lienGitFrontend: string&#xa;+ lienGitBackend: string" style="shape=umlClass;verticalLabelPosition=bottom;verticalAlign=top;align=left;spacingLeft=10;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="300" y="920" width="200" height="300" as="geometry"/>
+        </mxCell>
 
-    <enum name="ProtType">
-        <value>HTTP</value>
-        <value>HTTPS</value>
-        <value>SSH</value>
-    </enum>
+        <!-- User Related -->
+        <mxCell id="Stagiaire" value="Stagiaire&#xa;+ id: number&#xa;+ firstName: string&#xa;+ lastName: string&#xa;+ email: string&#xa;+ specialite: string&#xa;+ dureeStage: number&#xa;+ dateDebut: Date&#xa;+ dateFin: Date&#xa;+ photo: string" style="shape=umlClass;verticalLabelPosition=bottom;verticalAlign=top;align=left;spacingLeft=10;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="40" y="560" width="200" height="300" as="geometry"/>
+        </mxCell>
 
-    <enum name="ComponentType">
-        <value>APPLICATION</value>
-        <value>BASE_DONNEES</value>
-        <value>SERVEUR</value>
-    </enum>
+        <mxCell id="Conge" value="Conge&#xa;+ id: number&#xa;+ userId: number&#xa;+ matricule: string&#xa;+ service: string&#xa;+ responsable: string&#xa;+ type: CongeType&#xa;+ startDate: Date&#xa;+ endDate: Date&#xa;+ dateReprise: Date&#xa;+ telephone: string&#xa;+ adresse: string&#xa;+ interim1: string&#xa;+ interim2: string&#xa;+ firstName: string&#xa;+ lastName: string&#xa;+ status: CongeStatus" style="shape=umlClass;verticalLabelPosition=bottom;verticalAlign=top;align=left;spacingLeft=10;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="560" y="920" width="200" height="300" as="geometry"/>
+        </mxCell>
 
-    <enum name="CongeType">
-        <value>ANNUEL</value>
-        <value>MALADIE</value>
-        <value>MATERNITE</value>
-        <value>PATERNITE</value>
-    </enum>
+        <mxCell id="Notification" value="Notification&#xa;+ id: number&#xa;+ message: string&#xa;+ isRead: boolean&#xa;+ createdAt: Date" style="shape=umlClass;verticalLabelPosition=bottom;verticalAlign=top;align=left;spacingLeft=10;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="800" y="200" width="200" height="300" as="geometry"/>
+        </mxCell>
 
-    <enum name="CongeStatus">
-        <value>EN_ATTENTE</value>
-        <value>APPROUVE</value>
-        <value>REJETE</value>
-    </enum>
+        <!-- Relations -->
+        <mxCell id="User-Project" value="ManyToMany" style="endArrow=open;endFill=1;endSize=12;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#666666;strokeWidth=2;" edge="1" parent="1" source="User" target="Project">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="400" y="400" as="sourcePoint"/>
+            <mxPoint x="560" y="400" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
 
-    <!-- Entities -->
-    <entity name="User">
-        <attributes>
-            <attribute name="id" type="number" primary="true"/>
-            <attribute name="username" type="string"/>
-            <attribute name="password" type="string"/>
-            <attribute name="firstName" type="string"/>
-            <attribute name="lastName" type="string"/>
-            <attribute name="email" type="string"/>
-            <attribute name="matricule" type="string"/>
-            <attribute name="photo" type="string"/>
-            <attribute name="role" type="UserRole"/>
-            <attribute name="status" type="UserStatus"/>
-            <attribute name="hireDate" type="Date"/>
-            <attribute name="endDate" type="Date"/>
-        </attributes>
-        <relations>
-            <relation name="projects" type="ManyToMany" target="Project"/>
-            <relation name="tasks" type="OneToMany" target="Task"/>
-            <relation name="conges" type="OneToMany" target="Conge"/>
-            <relation name="notifications" type="OneToMany" target="Notification"/>
-            <relation name="stagiaire" type="OneToMany" target="Stagiaire"/>
-        </relations>
-    </entity>
+        <mxCell id="User-Task" value="OneToMany" style="endArrow=open;endFill=1;endSize=12;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#666666;strokeWidth=2;" edge="1" parent="1" source="User" target="Task">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="400" y="400" as="sourcePoint"/>
+            <mxPoint x="560" y="400" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
 
-    <entity name="Project">
-        <attributes>
-            <attribute name="id" type="number" primary="true"/>
-            <attribute name="name" type="string"/>
-            <attribute name="status" type="Status"/>
-            <attribute name="priorite" type="Priorite"/>
-            <attribute name="etat" type="Etat"/>
-            <attribute name="linkprojet" type="string"/>
-            <attribute name="description" type="string"/>
-            <attribute name="estimatedEndDate" type="Date"/>
-        </attributes>
-        <relations>
-            <relation name="users" type="ManyToMany" target="User"/>
-            <relation name="tasks" type="OneToMany" target="Task"/>
-            <relation name="livrables" type="OneToMany" target="Livrable"/>
-            <relation name="environnements" type="OneToMany" target="Environnement"/>
-            <relation name="checklist" type="OneToMany" target="Checklist"/>
-        </relations>
-    </entity>
+        <mxCell id="User-Conge" value="OneToMany" style="endArrow=open;endFill=1;endSize=12;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#666666;strokeWidth=2;" edge="1" parent="1" source="User" target="Conge">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="400" y="400" as="sourcePoint"/>
+            <mxPoint x="560" y="400" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
 
-    <entity name="Task">
-        <attributes>
-            <attribute name="id" type="number" primary="true"/>
-            <attribute name="title" type="string"/>
-            <attribute name="description" type="string"/>
-            <attribute name="status" type="string"/>
-            <attribute name="priority" type="Priority"/>
-            <attribute name="type" type="string"/>
-            <attribute name="customType" type="string"/>
-            <attribute name="creationDate" type="Date"/>
-        </attributes>
-        <relations>
-            <relation name="project" type="ManyToOne" target="Project"/>
-            <relation name="user" type="ManyToOne" target="User"/>
-        </relations>
-    </entity>
+        <mxCell id="User-Notification" value="OneToMany" style="endArrow=open;endFill=1;endSize=12;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#666666;strokeWidth=2;" edge="1" parent="1" source="User" target="Notification">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="400" y="400" as="sourcePoint"/>
+            <mxPoint x="560" y="400" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
 
-    <entity name="Stagiaire">
-        <attributes>
-            <attribute name="id" type="number" primary="true"/>
-            <attribute name="firstName" type="string"/>
-            <attribute name="lastName" type="string"/>
-            <attribute name="email" type="string"/>
-            <attribute name="specialite" type="string"/>
-            <attribute name="dureeStage" type="number"/>
-            <attribute name="dateDebut" type="Date"/>
-            <attribute name="dateFin" type="Date"/>
-            <attribute name="photo" type="string"/>
-        </attributes>
-        <relations>
-            <relation name="user" type="ManyToOne" target="User"/>
-        </relations>
-    </entity>
+        <mxCell id="User-Stagiaire" value="OneToMany" style="endArrow=open;endFill=1;endSize=12;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#666666;strokeWidth=2;" edge="1" parent="1" source="User" target="Stagiaire">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="400" y="400" as="sourcePoint"/>
+            <mxPoint x="560" y="400" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
 
-    <entity name="Livrable">
-        <attributes>
-            <attribute name="id" type="number" primary="true"/>
-            <attribute name="label" type="string"/>
-            <attribute name="description" type="string"/>
-            <attribute name="type" type="LivrableType"/>
-        </attributes>
-        <relations>
-            <relation name="project" type="ManyToOne" target="Project"/>
-            <relation name="technologies" type="ManyToMany" target="Technologie"/>
-        </relations>
-    </entity>
+        <mxCell id="Project-Task" value="OneToMany" style="endArrow=open;endFill=1;endSize=12;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#666666;strokeWidth=2;" edge="1" parent="1" source="Project" target="Task">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="400" y="400" as="sourcePoint"/>
+            <mxPoint x="560" y="400" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
 
-    <entity name="Technologie">
-        <attributes>
-            <attribute name="id" type="number" primary="true"/>
-            <attribute name="label" type="string"/>
-            <attribute name="description" type="string"/>
-            <attribute name="version" type="string"/>
-            <attribute name="language" type="string"/>
-        </attributes>
-        <relations>
-            <relation name="livrables" type="ManyToMany" target="Livrable"/>
-        </relations>
-    </entity>
+        <mxCell id="Project-Livrable" value="OneToMany" style="endArrow=open;endFill=1;endSize=12;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#666666;strokeWidth=2;" edge="1" parent="1" source="Project" target="Livrable">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="400" y="400" as="sourcePoint"/>
+            <mxPoint x="560" y="400" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
 
-    <entity name="Environnement">
-        <attributes>
-            <attribute name="id" type="number" primary="true"/>
-            <attribute name="nomServeur" type="string"/>
-            <attribute name="systemeExploitation" type="string"/>
-            <attribute name="ipServeur" type="string"/>
-            <attribute name="port" type="number"/>
-            <attribute name="type" type="EnvType"/>
-            <attribute name="Ptype" type="ProtType"/>
-            <attribute name="componentType" type="ComponentType"/>
-            <attribute name="cpu" type="string"/>
-            <attribute name="ram" type="string"/>
-            <attribute name="stockage" type="string"/>
-            <attribute name="logicielsInstalled" type="string[]"/>
-            <attribute name="nomUtilisateur" type="string"/>
-            <attribute name="motDePasse" type="string"/>
-        </attributes>
-        <relations>
-            <relation name="project" type="ManyToOne" target="Project"/>
-        </relations>
-    </entity>
+        <mxCell id="Project-Environnement" value="OneToMany" style="endArrow=open;endFill=1;endSize=12;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#666666;strokeWidth=2;" edge="1" parent="1" source="Project" target="Environnement">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="400" y="400" as="sourcePoint"/>
+            <mxPoint x="560" y="400" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
 
-    <entity name="Checklist">
-        <attributes>
-            <attribute name="id" type="number" primary="true"/>
-            <attribute name="spec" type="string"/>
-            <attribute name="frs" type="string"/>
-            <attribute name="lienGitFrontend" type="string"/>
-            <attribute name="lienGitBackend" type="string"/>
-        </attributes>
-        <relations>
-            <relation name="project" type="ManyToOne" target="Project"/>
-        </relations>
-    </entity>
+        <mxCell id="Project-Checklist" value="OneToMany" style="endArrow=open;endFill=1;endSize=12;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#666666;strokeWidth=2;" edge="1" parent="1" source="Project" target="Checklist">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="400" y="400" as="sourcePoint"/>
+            <mxPoint x="560" y="400" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
 
-    <entity name="Conge">
-        <attributes>
-            <attribute name="id" type="number" primary="true"/>
-            <attribute name="userId" type="number"/>
-            <attribute name="matricule" type="string"/>
-            <attribute name="service" type="string"/>
-            <attribute name="responsable" type="string"/>
-            <attribute name="type" type="CongeType"/>
-            <attribute name="startDate" type="Date"/>
-            <attribute name="endDate" type="Date"/>
-            <attribute name="dateReprise" type="Date"/>
-            <attribute name="telephone" type="string"/>
-            <attribute name="adresse" type="string"/>
-            <attribute name="interim1" type="string"/>
-            <attribute name="interim2" type="string"/>
-            <attribute name="firstName" type="string"/>
-            <attribute name="lastName" type="string"/>
-            <attribute name="status" type="CongeStatus"/>
-        </attributes>
-        <relations>
-            <relation name="user" type="ManyToOne" target="User"/>
-        </relations>
-    </entity>
+        <mxCell id="Livrable-Technologie" value="ManyToMany" style="endArrow=open;endFill=1;endSize=12;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#666666;strokeWidth=2;" edge="1" parent="1" source="Livrable" target="Technologie">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="400" y="400" as="sourcePoint"/>
+            <mxPoint x="560" y="400" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
 
-    <entity name="Notification">
-        <attributes>
-            <attribute name="id" type="number" primary="true"/>
-            <attribute name="message" type="string"/>
-            <attribute name="isRead" type="boolean"/>
-            <attribute name="createdAt" type="Date"/>
-        </attributes>
-        <relations>
-            <relation name="user" type="ManyToOne" target="User"/>
-        </relations>
-    </entity>
-</entities> 
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile> 
